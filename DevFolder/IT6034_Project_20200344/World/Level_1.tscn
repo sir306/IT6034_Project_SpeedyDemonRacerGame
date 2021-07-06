@@ -1,0 +1,392 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Assets/Material.material" type="Material" id=1]
+[ext_resource path="res://World/Tunnel.gd" type="Script" id=2]
+[ext_resource path="res://Assets/RaceLights/StartLights.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Tiles/ShieldMaterial.tres" type="Material" id=4]
+[ext_resource path="res://Tiles/RaceTrack1.2.tres" type="MeshLibrary" id=5]
+[ext_resource path="res://Player/CamaroPlayer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://World/Level_1.gd" type="Script" id=7]
+[ext_resource path="res://World/SpawnBeacons.gd" type="Script" id=8]
+[ext_resource path="res://Assets/PickUps/PickupSpawn.tscn" type="PackedScene" id=9]
+[ext_resource path="res://GUIs/GameOverPopUp.tscn" type="PackedScene" id=10]
+[ext_resource path="res://GUIs/VictoryPopup.tscn" type="PackedScene" id=11]
+[ext_resource path="res://World/GameOver.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/SFX/Force-Fields-320k.wav" type="AudioStream" id=13]
+[ext_resource path="res://World/MusicPlayers/MusicPlayerTree.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Assets/SFX/Bass Drop Sound Effect - No Copyright (HD)-128k.mp3" type="AudioStream" id=15]
+[ext_resource path="res://GUIs/SoundMenu.tscn" type="PackedScene" id=16]
+
+[node name="Level_1" type="Spatial" groups=[
+"gamestate",
+]]
+script = ExtResource( 7 )
+
+[node name="LavaFloor" type="Spatial" parent="."]
+
+[node name="CSGBox" type="CSGBox" parent="LavaFloor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0 )
+use_collision = true
+collision_layer = 17
+collision_mask = 17
+width = 900.0
+height = 30.0
+depth = 900.0
+material = ExtResource( 1 )
+
+[node name="CSGCylinder5" type="CSGCylinder" parent="LavaFloor/CSGBox" groups=[
+"tunnel",
+]]
+transform = Transform( -0.411546, -0.911388, -8.69908e-08, -0.911388, 0.411546, -8.67977e-09, 4.37114e-08, 7.57103e-08, -1, 59.5175, 5.74898, 8.344 )
+layers = 0
+operation = 2
+radius = 18.0
+height = 52.7516
+sides = 30
+material = ExtResource( 4 )
+script = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="LavaFloor/CSGBox/CSGCylinder5"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="LavaFloor/CSGBox/CSGCylinder5"]
+wait_time = 3.0
+one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder5"]
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 20.0
+bus = "Car"
+
+[node name="CSGCylinder7" type="CSGCylinder" parent="LavaFloor/CSGBox" groups=[
+"tunnel",
+]]
+transform = Transform( 0.411546, 0.911388, 1.74414e-07, -0.911388, 0.411546, -8.67977e-09, -7.96899e-08, -1.55386e-07, 1, -59.3603, 10.8386, -0.655995 )
+layers = 0
+operation = 2
+radius = 32.0
+height = 62.787
+sides = 30
+material = ExtResource( 4 )
+script = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="LavaFloor/CSGBox/CSGCylinder7"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="LavaFloor/CSGBox/CSGCylinder7"]
+wait_time = 3.0
+one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder7"]
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 32.0
+bus = "Car"
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="LavaFloor/CSGBox" groups=[
+"tunnel",
+]]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -11.6178, -10.0854, -1.26781 )
+layers = 0
+operation = 2
+radius = 10.0
+height = 160.0
+sides = 30
+material = ExtResource( 4 )
+script = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="LavaFloor/CSGBox/CSGCylinder2"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="LavaFloor/CSGBox/CSGCylinder2"]
+wait_time = 3.0
+one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -5, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 20.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 4, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 20.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D9" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -25, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 20.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D10" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -16, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 20.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D11" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -46, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 20.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D12" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99999, -37, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 20.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D13" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99999, -62, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 20.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D14" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99999, -53, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 20.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 13, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 20.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 22, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 20.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 31, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 20.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D6" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 40, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 20.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D7" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 50, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 20.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D8" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 59, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 20.0
+bus = "Car"
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource( 5 )
+data = {
+"cells": PoolIntArray( 0, 7, 655381, 65520, 7, 38, 65528, 7, 38, 262152, 7, 21, -786408, 7, 1441819, -786400, 7, 1048604, -524248, 7, 17, -458792, 7, 1441821, -458784, 7, 1441813, -458776, 7, 17, 0, 15, 38, 262152, 15, 21, 327664, 15, 36, 327672, 15, 36, 327688, 16, 1310760, 262144, 23, 27, 262152, 23, 21, 327664, 23, 36, 327672, 23, 1441809, 262144, 31, 1048597, 262152, 31, 27, 327664, 31, 1441809, 327672, 31, 1048597, 262144, 65511, 655387, 262152, 65511, 1048603, 0, 65519, 655398, 262152, 65519, 21, 0, 65527, 655381, 262152, 65527, 21, -720936, 65527, 655387, -720928, 65527, 1048614, -458776, 65527, 1048603, 0, 65535, 35, 8, 65535, 1048597, 16, 65535, 1048597, 65520, 65535, 1048593, 65528, 65535, 655377, 262152, 65535, 21, -786432, 65535, 1048597, -786424, 65535, 1048597, -786416, 65535, 1048597, -786408, 65535, 1048603, -720936, 65535, 1441821, -720928, 65535, 1441813, -720920, 65535, 1441813, -720912, 65535, 1441813, -720904, 65535, 1441813, -524256, 65535, 1441820, -524248, 65535, 1048593, -458792, 65535, 655387, -458784, 65535, 1048604, -458776, 65535, 21, -262120, 65535, 1441820, -196632, 65535, 1048604 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 5, 0 )
+}
+
+[node name="StartLights" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 18.659, 15.9528, 33.1258 )
+
+[node name="VehicleBody" parent="." instance=ExtResource( 6 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 18, 9.17706, 47 )
+
+[node name="GameOver" parent="VehicleBody" instance=ExtResource( 12 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.10457, 0 )
+visible = false
+
+[node name="BeaconAudio" type="AudioStreamPlayer3D" parent="VehicleBody"]
+pause_mode = 2
+stream = ExtResource( 15 )
+unit_db = 5.0
+bus = "Beacon"
+
+[node name="Beacons" type="Node" parent="."]
+
+[node name="Beacon1" type="Position3D" parent="Beacons" groups=[
+"BeaconPos",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1071, 15.2109, -20.032 )
+script = ExtResource( 8 )
+
+[node name="Beacon2" type="Position3D" parent="Beacons" groups=[
+"BeaconPos",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.107109, 16.2864, 43.968 )
+script = ExtResource( 8 )
+
+[node name="Beacon3" type="Position3D" parent="Beacons" groups=[
+"BeaconPos",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1071, 7.50661, -0.475055 )
+script = ExtResource( 8 )
+
+[node name="Beacon4" type="Position3D" parent="Beacons" groups=[
+"BeaconPos",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 51.1071, -15.6209, 13.5249 )
+script = ExtResource( 8 )
+
+[node name="Beacon5" type="Position3D" parent="Beacons" groups=[
+"BeaconPos",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67.8929, -19.225, -0.475055 )
+script = ExtResource( 8 )
+
+[node name="Beacon6" type="Position3D" parent="Beacons" groups=[
+"BeaconPos",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67.8929, -6.62092, -0.475055 )
+script = ExtResource( 8 )
+
+[node name="Beacon7" type="Position3D" parent="Beacons" groups=[
+"BeaconPos",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1071, 16.3791, 32.5249 )
+script = ExtResource( 8 )
+
+[node name="PickUps" type="Node" parent="."]
+
+[node name="PickupSpawn22" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1961, 9.52797, 16 )
+
+[node name="PickupSpawn23" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3303, 9.52797, -8 )
+
+[node name="PickupSpawn24" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.489, 9.52797, -8 )
+
+[node name="PickupSpawn25" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0036, 9.706, -45 )
+
+[node name="PickupSpawn26" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00361, 9.706, -45 )
+
+[node name="PickupSpawn27" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03788, 2.706, -1.18255 )
+
+[node name="PickupSpawn28" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03788, 1.56461, 13.8174 )
+
+[node name="PickupSpawn29" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9621, 9.56461, 41.8174 )
+
+[node name="PickupSpawn30" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9621, 9.56461, 21.8174 )
+
+[node name="PickupSpawn31" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9621, 1.56461, 0.817444 )
+
+[node name="PickupSpawn32" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0379, 1.56461, 0.817444 )
+
+[node name="PickupSpawn33" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0379, 1.56461, -3.18256 )
+
+[node name="PickupSpawn34" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.0379, -0.435394, -3.18256 )
+
+[node name="PickupSpawn35" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 73.0379, -14.4354, -3.18256 )
+
+[node name="PickupSpawn36" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 73.0379, -14.4354, 12.8174 )
+
+[node name="PickupSpawn37" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.0379, -21.4354, 12.8174 )
+
+[node name="PickupSpawn38" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.0379, -21.4354, 1.81744 )
+
+[node name="PickupSpawn39" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0379, -22.5631, 1.81744 )
+
+[node name="PickupSpawn40" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0379, -22.5631, -3.18256 )
+
+[node name="PickupSpawn41" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9621, -22.5631, 1.81744 )
+
+[node name="PickupSpawn42" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9621, -22.5631, -3.18256 )
+
+[node name="PickupSpawn43" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -58.9621, -22.5631, 1.81744 )
+
+[node name="PickupSpawn44" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -58.9621, -22.5631, -3.18256 )
+
+[node name="PickupSpawn45" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -62.9621, -18.5631, -13.1826 )
+
+[node name="PickupSpawn46" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.9621, -14.5631, 11.8174 )
+
+[node name="PickupSpawn47" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.9621, -6.05981, 0.817444 )
+
+[node name="PickupSpawn48" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.9621, 1.50859, 0.817444 )
+
+[node name="PickupSpawn49" parent="PickUps" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.9621, 9.22637, 52.8174 )
+
+[node name="GameOverPopUp" parent="." instance=ExtResource( 10 )]
+
+[node name="VictoryPopup" parent="." instance=ExtResource( 11 )]
+
+[node name="MusicPlayerTree" parent="." instance=ExtResource( 14 )]
+
+[node name="SoundMenu" parent="." instance=ExtResource( 16 )]
+
+[connection signal="timeout" from="LavaFloor/CSGBox/CSGCylinder5/Timer" to="LavaFloor/CSGBox/CSGCylinder5" method="_on_Timer_timeout"]
+[connection signal="timeout" from="LavaFloor/CSGBox/CSGCylinder5/Timer2" to="LavaFloor/CSGBox/CSGCylinder5" method="_on_Timer2_timeout"]
+[connection signal="timeout" from="LavaFloor/CSGBox/CSGCylinder7/Timer" to="LavaFloor/CSGBox/CSGCylinder7" method="_on_Timer_timeout"]
+[connection signal="timeout" from="LavaFloor/CSGBox/CSGCylinder7/Timer2" to="LavaFloor/CSGBox/CSGCylinder7" method="_on_Timer2_timeout"]
+[connection signal="timeout" from="LavaFloor/CSGBox/CSGCylinder2/Timer" to="LavaFloor/CSGBox/CSGCylinder2" method="_on_Timer_timeout"]
+[connection signal="timeout" from="LavaFloor/CSGBox/CSGCylinder2/Timer2" to="LavaFloor/CSGBox/CSGCylinder2" method="_on_Timer2_timeout"]

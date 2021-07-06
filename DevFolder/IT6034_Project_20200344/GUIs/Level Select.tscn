@@ -1,0 +1,214 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Fonts/kenvector_future.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://GUIs/Level Select.gd" type="Script" id=2]
+[ext_resource path="res://GUIs/MainTheme.tres" type="Theme" id=3]
+[ext_resource path="res://GUIs/LevelNotCreatedLevelSelect.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 46
+outline_size = 2
+outline_color = Color( 1, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="Level Select" type="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -327.5
+margin_top = -220.0
+margin_right = 327.5
+margin_bottom = 23.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_right = 655.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 1 )
+text = "Select Level"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+margin_top = 57.0
+margin_right = 655.0
+margin_bottom = 252.0
+custom_constants/vseparation = 35
+custom_constants/hseparation = 35
+columns = 6
+
+[node name="Level1" type="Button" parent="VBoxContainer/GridContainer" groups=[
+"level_buttons",
+]]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+text = "1"
+
+[node name="Level2" type="Button" parent="VBoxContainer/GridContainer" groups=[
+"level_buttons",
+]]
+margin_left = 115.0
+margin_right = 195.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+disabled = true
+text = "2"
+
+[node name="Level3" type="Button" parent="VBoxContainer/GridContainer" groups=[
+"level_buttons",
+]]
+margin_left = 230.0
+margin_right = 310.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+disabled = true
+text = "??"
+
+[node name="Level4" type="Button" parent="VBoxContainer/GridContainer" groups=[
+"level_buttons",
+]]
+margin_left = 345.0
+margin_right = 425.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+disabled = true
+text = "??"
+
+[node name="Level5" type="Button" parent="VBoxContainer/GridContainer" groups=[
+"level_buttons",
+]]
+margin_left = 460.0
+margin_right = 540.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+disabled = true
+text = "??"
+
+[node name="Level6" type="Button" parent="VBoxContainer/GridContainer" groups=[
+"level_buttons",
+]]
+margin_left = 575.0
+margin_right = 655.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+disabled = true
+text = "??"
+
+[node name="Level7" type="Button" parent="VBoxContainer/GridContainer" groups=[
+"level_buttons",
+]]
+margin_top = 115.0
+margin_right = 80.0
+margin_bottom = 195.0
+rect_min_size = Vector2( 80, 80 )
+disabled = true
+text = "??"
+
+[node name="Level8" type="Button" parent="VBoxContainer/GridContainer" groups=[
+"level_buttons",
+]]
+margin_left = 115.0
+margin_top = 115.0
+margin_right = 195.0
+margin_bottom = 195.0
+rect_min_size = Vector2( 80, 80 )
+disabled = true
+text = "??"
+
+[node name="Level9" type="Button" parent="VBoxContainer/GridContainer" groups=[
+"level_buttons",
+]]
+margin_left = 230.0
+margin_top = 115.0
+margin_right = 310.0
+margin_bottom = 195.0
+rect_min_size = Vector2( 80, 80 )
+disabled = true
+text = "??"
+
+[node name="Level10" type="Button" parent="VBoxContainer/GridContainer" groups=[
+"level_buttons",
+]]
+margin_left = 345.0
+margin_top = 115.0
+margin_right = 425.0
+margin_bottom = 195.0
+rect_min_size = Vector2( 80, 80 )
+disabled = true
+text = "??"
+
+[node name="Level11" type="Button" parent="VBoxContainer/GridContainer" groups=[
+"level_buttons",
+]]
+margin_left = 460.0
+margin_top = 115.0
+margin_right = 540.0
+margin_bottom = 195.0
+rect_min_size = Vector2( 80, 80 )
+disabled = true
+text = "??"
+
+[node name="Level12" type="Button" parent="VBoxContainer/GridContainer" groups=[
+"level_buttons",
+]]
+margin_left = 575.0
+margin_top = 115.0
+margin_right = 655.0
+margin_bottom = 195.0
+rect_min_size = Vector2( 80, 80 )
+disabled = true
+text = "??"
+
+[node name="CloseButton" type="Button" parent="VBoxContainer"]
+margin_top = 256.0
+margin_right = 655.0
+margin_bottom = 305.0
+text = "Close"
+
+[node name="LevelNotMadeMsg2" parent="." instance=ExtResource( 4 )]
+
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level1" to="." method="_on_level_button_pressed" binds= [ "Level1" ]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level2" to="." method="_on_level_button_pressed" binds= [ "Level2" ]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level3" to="." method="_on_level_button_pressed" binds= [ "Level3" ]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level4" to="." method="_on_level_button_pressed" binds= [ "Level4" ]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level5" to="." method="_on_level_button_pressed" binds= [ "Level5" ]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level6" to="." method="_on_level_button_pressed" binds= [ "Level6" ]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level7" to="." method="_on_level_button_pressed" binds= [ "Level7" ]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level8" to="." method="_on_level_button_pressed" binds= [ "Level8" ]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level9" to="." method="_on_level_button_pressed" binds= [ "Level9" ]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level10" to="." method="_on_level_button_pressed" binds= [ "Level10" ]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level11" to="." method="_on_level_button_pressed" binds= [ "Level11" ]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Level12" to="." method="_on_level_button_pressed" binds= [ "Level12" ]]
+[connection signal="pressed" from="VBoxContainer/CloseButton" to="." method="_on_CloseButton_pressed"]

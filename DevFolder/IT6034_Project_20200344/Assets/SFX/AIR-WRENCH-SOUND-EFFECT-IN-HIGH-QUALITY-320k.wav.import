@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/AIR-WRENCH-SOUND-EFFECT-IN-HIGH-QUALITY-320k.wav-7672a4db33af65e8b29519baeb7d2cc1.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/AIR-WRENCH-SOUND-EFFECT-IN-HIGH-QUALITY-320k.wav"
+dest_files=[ "res://.import/AIR-WRENCH-SOUND-EFFECT-IN-HIGH-QUALITY-320k.wav-7672a4db33af65e8b29519baeb7d2cc1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0

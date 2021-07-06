@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/FireGTO.obj-c48b8e4ae575444a1a2acf45c9520401.mesh"
+
+[deps]
+
+files=[ "res://.import/FireGTO.obj-c48b8e4ae575444a1a2acf45c9520401.mesh" ]
+
+source_file="res://Assets/muscle_car/Objects/FireGTO.obj"
+dest_files=[ "res://.import/FireGTO.obj-c48b8e4ae575444a1a2acf45c9520401.mesh", "res://.import/FireGTO.obj-c48b8e4ae575444a1a2acf45c9520401.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

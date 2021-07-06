@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Training-Day.wav-c3c004d1cbc74b8a20dfb03cbafa3159.sample"
+
+[deps]
+
+source_file="res://Assets/Music/Training-Day.wav"
+dest_files=[ "res://.import/Training-Day.wav-c3c004d1cbc74b8a20dfb03cbafa3159.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

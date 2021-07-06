@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Power-Up-Sound-effect-320k.wav-95c9c27d927fbe14e7e7b7da8231ccec.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Power-Up-Sound-effect-320k.wav"
+dest_files=[ "res://.import/Power-Up-Sound-effect-320k.wav-95c9c27d927fbe14e7e7b7da8231ccec.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

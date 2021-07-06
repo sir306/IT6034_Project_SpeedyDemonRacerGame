@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/ramp2.obj-6983f50adb7bdbd0b8cb05c63b5c809e.mesh"
+
+[deps]
+
+files=[ "res://.import/ramp2.obj-6983f50adb7bdbd0b8cb05c63b5c809e.mesh" ]
+
+source_file="res://Assets/Racetrack/ramp2.obj"
+dest_files=[ "res://.import/ramp2.obj-6983f50adb7bdbd0b8cb05c63b5c809e.mesh", "res://.import/ramp2.obj-6983f50adb7bdbd0b8cb05c63b5c809e.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

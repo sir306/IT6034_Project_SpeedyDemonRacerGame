@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Race Start (traffic light beeping) - Sound Effect for Editing-128k.mp3-36376d189a896486a134088298a775ac.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Race Start (traffic light beeping) - Sound Effect for Editing-128k.mp3"
+dest_files=[ "res://.import/Race Start (traffic light beeping) - Sound Effect for Editing-128k.mp3-36376d189a896486a134088298a775ac.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

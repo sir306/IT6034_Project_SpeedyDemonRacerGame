@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/angled.obj-539522f5a546587a1dd5d19dced1b879.mesh"
+
+[deps]
+
+files=[ "res://.import/angled.obj-539522f5a546587a1dd5d19dced1b879.mesh" ]
+
+source_file="res://Assets/Racetrack/angled.obj"
+dest_files=[ "res://.import/angled.obj-539522f5a546587a1dd5d19dced1b879.mesh", "res://.import/angled.obj-539522f5a546587a1dd5d19dced1b879.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

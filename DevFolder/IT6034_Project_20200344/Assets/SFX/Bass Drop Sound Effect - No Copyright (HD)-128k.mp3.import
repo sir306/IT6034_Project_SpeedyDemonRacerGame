@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Bass Drop Sound Effect - No Copyright (HD)-128k.mp3-6fbe2cc4507c97fc9976faabdea1132d.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Bass Drop Sound Effect - No Copyright (HD)-128k.mp3"
+dest_files=[ "res://.import/Bass Drop Sound Effect - No Copyright (HD)-128k.mp3-6fbe2cc4507c97fc9976faabdea1132d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

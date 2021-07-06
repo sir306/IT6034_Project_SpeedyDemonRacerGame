@@ -1,0 +1,497 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://GUIs/Control_Instructions.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Fonts/kenvector_future.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.14902, 0.14902, 0.14902, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color( 1, 1, 1, 0.6 )
+shadow_size = 1
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=3]
+default_font = SubResource( 2 )
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = SubResource( 1 )
+Button/styles/pressed = null
+VBoxContainer/constants/separation = 4
+
+[sub_resource type="DynamicFont" id=4]
+size = 36
+outline_size = 2
+outline_color = Color( 1, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="Control_Instructions" type="Popup"]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 400, 400 )
+theme = SubResource( 3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -356.0
+margin_top = -265.0
+margin_right = 356.0
+margin_bottom = 265.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 64.0
+margin_top = 23.0
+margin_right = 647.0
+margin_bottom = 506.0
+alignment = 1
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 583.0
+margin_bottom = 85.0
+custom_fonts/font = SubResource( 4 )
+text = "Instructions
+On how to drive"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 89.0
+margin_right = 583.0
+margin_bottom = 389.0
+custom_constants/vseparation = 2
+custom_constants/hseparation = 35
+columns = 2
+
+[node name="ActionLabel" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+margin_right = 275.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 4 )
+text = "Action"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyLabel" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+margin_left = 310.0
+margin_right = 583.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 4 )
+text = "Key Binding"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionLabel2" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+margin_top = 43.0
+margin_right = 275.0
+margin_bottom = 78.0
+text = "Accelerator "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyLabel2" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+margin_left = 310.0
+margin_top = 43.0
+margin_right = 583.0
+margin_bottom = 78.0
+text = "w"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionLabel3" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+margin_top = 80.0
+margin_right = 275.0
+margin_bottom = 115.0
+text = "Steer Left"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyLabel3" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+margin_left = 310.0
+margin_top = 80.0
+margin_right = 583.0
+margin_bottom = 115.0
+text = "a"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionLabel4" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+margin_top = 117.0
+margin_right = 275.0
+margin_bottom = 152.0
+text = "steer right"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyLabel4" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+margin_left = 310.0
+margin_top = 117.0
+margin_right = 583.0
+margin_bottom = 152.0
+text = "d"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionLabel5" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+margin_top = 154.0
+margin_right = 275.0
+margin_bottom = 189.0
+text = "reverse"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyLabel5" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+margin_left = 310.0
+margin_top = 154.0
+margin_right = 583.0
+margin_bottom = 189.0
+text = "s"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionLabel6" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+margin_top = 191.0
+margin_right = 275.0
+margin_bottom = 226.0
+text = "brake"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyLabel6" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+margin_left = 310.0
+margin_top = 191.0
+margin_right = 583.0
+margin_bottom = 226.0
+text = "spacebar"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionLabel7" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+margin_top = 228.0
+margin_right = 275.0
+margin_bottom = 263.0
+text = "Pause game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyLabel7" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+margin_left = 310.0
+margin_top = 228.0
+margin_right = 583.0
+margin_bottom = 263.0
+text = "esc"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionLabel8" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+margin_top = 265.0
+margin_right = 275.0
+margin_bottom = 300.0
+text = "Skip Song"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyLabel8" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+margin_left = 310.0
+margin_top = 265.0
+margin_right = 583.0
+margin_bottom = 300.0
+text = "Backspace"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GamepadButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 393.0
+margin_right = 583.0
+margin_bottom = 436.0
+text = "Gamepad"
+
+[node name="CloseButton2" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 440.0
+margin_right = 583.0
+margin_bottom = 483.0
+text = "Close"
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -491.5
+margin_top = -265.0
+margin_right = 491.5
+margin_bottom = 265.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer2"]
+margin_left = 78.0
+margin_top = 23.0
+margin_right = 905.0
+margin_bottom = 506.0
+alignment = 1
+
+[node name="Title" type="Label" parent="CenterContainer2/VBoxContainer"]
+margin_right = 827.0
+margin_bottom = 85.0
+custom_fonts/font = SubResource( 4 )
+text = "Instructions On how to drive
+Controls are in game only"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer2/VBoxContainer"]
+margin_top = 89.0
+margin_right = 827.0
+margin_bottom = 389.0
+custom_constants/vseparation = 2
+custom_constants/hseparation = 35
+columns = 2
+
+[node name="ActionLabel" type="Label" parent="CenterContainer2/VBoxContainer/GridContainer"]
+margin_right = 275.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 4 )
+text = "Action"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyLabel" type="Label" parent="CenterContainer2/VBoxContainer/GridContainer"]
+margin_left = 310.0
+margin_right = 827.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 4 )
+text = "Gamepad"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionLabel2" type="Label" parent="CenterContainer2/VBoxContainer/GridContainer"]
+margin_top = 43.0
+margin_right = 275.0
+margin_bottom = 78.0
+text = "Accelerator "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyLabel2" type="Label" parent="CenterContainer2/VBoxContainer/GridContainer"]
+margin_left = 310.0
+margin_top = 43.0
+margin_right = 827.0
+margin_bottom = 78.0
+text = "r2"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionLabel3" type="Label" parent="CenterContainer2/VBoxContainer/GridContainer"]
+margin_top = 80.0
+margin_right = 275.0
+margin_bottom = 115.0
+text = "Steer Left"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyLabel3" type="Label" parent="CenterContainer2/VBoxContainer/GridContainer"]
+margin_left = 310.0
+margin_top = 80.0
+margin_right = 827.0
+margin_bottom = 115.0
+text = "left on left analog"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionLabel4" type="Label" parent="CenterContainer2/VBoxContainer/GridContainer"]
+margin_top = 117.0
+margin_right = 275.0
+margin_bottom = 152.0
+text = "steer right"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyLabel4" type="Label" parent="CenterContainer2/VBoxContainer/GridContainer"]
+margin_left = 310.0
+margin_top = 117.0
+margin_right = 827.0
+margin_bottom = 152.0
+text = "right on the left analog"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionLabel5" type="Label" parent="CenterContainer2/VBoxContainer/GridContainer"]
+margin_top = 154.0
+margin_right = 275.0
+margin_bottom = 189.0
+text = "reverse"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyLabel5" type="Label" parent="CenterContainer2/VBoxContainer/GridContainer"]
+margin_left = 310.0
+margin_top = 154.0
+margin_right = 827.0
+margin_bottom = 189.0
+text = "l2"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionLabel6" type="Label" parent="CenterContainer2/VBoxContainer/GridContainer"]
+margin_top = 191.0
+margin_right = 275.0
+margin_bottom = 226.0
+text = "brake"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyLabel6" type="Label" parent="CenterContainer2/VBoxContainer/GridContainer"]
+margin_left = 310.0
+margin_top = 191.0
+margin_right = 827.0
+margin_bottom = 226.0
+text = "b"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionLabel7" type="Label" parent="CenterContainer2/VBoxContainer/GridContainer"]
+margin_top = 228.0
+margin_right = 275.0
+margin_bottom = 263.0
+text = "Pause game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyLabel7" type="Label" parent="CenterContainer2/VBoxContainer/GridContainer"]
+margin_left = 310.0
+margin_top = 228.0
+margin_right = 827.0
+margin_bottom = 263.0
+text = "start"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionLabel8" type="Label" parent="CenterContainer2/VBoxContainer/GridContainer"]
+margin_top = 265.0
+margin_right = 275.0
+margin_bottom = 300.0
+text = "Skip Song"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyLabel8" type="Label" parent="CenterContainer2/VBoxContainer/GridContainer"]
+margin_left = 310.0
+margin_top = 265.0
+margin_right = 827.0
+margin_bottom = 300.0
+text = "Right on D-pad"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyBindingsButton" type="Button" parent="CenterContainer2/VBoxContainer"]
+margin_top = 393.0
+margin_right = 827.0
+margin_bottom = 436.0
+text = "Key Bindings"
+
+[node name="CloseButton2" type="Button" parent="CenterContainer2/VBoxContainer"]
+margin_top = 440.0
+margin_right = 827.0
+margin_bottom = 483.0
+text = "Close"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GamepadButton" to="." method="_on_GamepadButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CloseButton2" to="." method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="CenterContainer2/VBoxContainer/KeyBindingsButton" to="." method="_on_KeyBindingsButton_pressed"]
+[connection signal="pressed" from="CenterContainer2/VBoxContainer/CloseButton2" to="." method="_on_CloseButton_pressed"]

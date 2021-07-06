@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sound-effects-explosion-320k.wav-583e91adf15fbc548fe82ce0ee133423.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/sound-effects-explosion-320k.wav"
+dest_files=[ "res://.import/sound-effects-explosion-320k.wav-583e91adf15fbc548fe82ce0ee133423.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,373 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Player/CamaroPlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Material.material" type="Material" id=2]
+[ext_resource path="res://Tiles/RaceTrack1.2.tres" type="MeshLibrary" id=3]
+[ext_resource path="res://Tiles/ShieldMaterial.tres" type="Material" id=4]
+[ext_resource path="res://Assets/PickUps/PickupSpawn.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/RaceLights/StartLights.tscn" type="PackedScene" id=6]
+[ext_resource path="res://World/Level_2.gd" type="Script" id=7]
+[ext_resource path="res://World/GameOver.tscn" type="PackedScene" id=8]
+[ext_resource path="res://GUIs/GameOverPopUp.tscn" type="PackedScene" id=9]
+[ext_resource path="res://World/Tunnel.gd" type="Script" id=10]
+[ext_resource path="res://World/SpawnBeacons.gd" type="Script" id=11]
+[ext_resource path="res://GUIs/VictoryPopup.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/SFX/Force-Fields-320k.wav" type="AudioStream" id=13]
+[ext_resource path="res://World/MusicPlayers/MusicPlayerTree.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Assets/SFX/Bass Drop Sound Effect - No Copyright (HD)-128k.mp3" type="AudioStream" id=15]
+[ext_resource path="res://GUIs/SoundMenu.tscn" type="PackedScene" id=16]
+
+[node name="Level2" type="Spatial" groups=[
+"gamestate",
+]]
+script = ExtResource( 7 )
+
+[node name="VehicleBody" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 65.1693, 1.20187, 30.3188 )
+
+[node name="GameOver" parent="VehicleBody" instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.10457, 0 )
+visible = false
+
+[node name="BeaconAudio" type="AudioStreamPlayer3D" parent="VehicleBody"]
+pause_mode = 2
+stream = ExtResource( 15 )
+unit_db = 5.0
+bus = "Beacon"
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 0 )
+mesh_library = ExtResource( 3 )
+data = {
+"cells": PoolIntArray( 51, 5, 21, 57, 5, 21, 262148, 7, 28, 1114068, 7, 28, -131021, 10, 851993, -131015, 10, 851993, 1441748, 11, 1441833, 51, 13, 36, 57, 13, 36, 524292, 15, 28, 1376212, 15, 36, 851972, 19, 1441833, 51, 20, 36, 57, 20, 36, 12, 23, 1441820, 262148, 23, 1441820, 589820, 23, 1441820, 786436, 23, 21, 851924, 23, 1441820, 851932, 23, 1048604, 851940, 23, 1441820, 851948, 23, 1048604, 851956, 23, 1441820, 1114060, 23, 655389, 1179600, 23, 655401, 1179632, 23, 655401, 1376212, 23, 36, -524260, 23, 1441820, -524252, 23, 1441813, -524244, 23, 1441813, -524236, 23, 1441813, -524228, 23, 1441813, -524220, 23, 1441813, -524212, 23, 1048604, -458689, 23, 655401, -262124, 23, 1441820, -262060, 23, 1048605, 51, 27, 36, 57, 28, 655396, 786436, 31, 21, 1114060, 31, 655381, 1376212, 31, 36, -262060, 31, 28, 51, 34, 655396, 57, 36, 655396, 84, 39, 21, 524292, 39, 655388, 589772, 39, 655389, 589780, 39, 1048604, 655312, 39, 655401, 851932, 39, 1048604, 1114060, 39, 655381, 1114068, 39, 655398, 1114084, 39, 1048603, 51, 41, 655396, 57, 41, 655396, 51, 47, 655396, 57, 47, 655396, 84, 47, 21, 524292, 47, 1441811, 524300, 47, 1048595, 589772, 47, 38, 851924, 47, 655398, 1114060, 47, 655381, 1114076, 47, 655387, 1114084, 47, 27, 1245136, 52, 1441793, 1245138, 52, 1441793, 1245140, 52, 1441793, 1245142, 52, 1441793, 28, 55, 1441820, 36, 55, 1048597, 43, 55, 1048597, 51, 55, 29, 57, 55, 1441821, 65, 55, 1048597, 68, 55, 1441813, 76, 55, 1441813, 84, 55, 29, 65569, 55, 655401, 65616, 55, 41, 262164, 55, 1441820, 524300, 55, 1441811, 851916, 55, 1441809, 851924, 55, 17, 1114060, 55, 1441819, 1114068, 55, 1441813, 1114076, 55, 27, 262193, 65487, 655377, 262201, 65487, 1048604, 524353, 65487, 1048593, 262185, 65495, 655377, 262193, 65495, 17, 524331, 65495, 655387, 524339, 65495, 1048593, 524345, 65495, 655377, 524353, 65495, 17, 589875, 65499, 1048617, 4, 65503, 655390, 12, 65503, 1441813, 17, 65503, 1441813, 25, 65503, 1441813, 33, 65503, 1048604, 65492, 65503, 655387, 65500, 65503, 1441813, 65508, 65503, 1441813, 65516, 65503, 1441813, 65524, 65503, 1048605, 131040, 65503, 41, 262185, 65503, 17, 524331, 65503, 655381, 524339, 65503, 36, 524345, 65503, 36, 524339, 65510, 36, 524345, 65510, 36, 4, 65511, 21, 65492, 65511, 28, 65516, 65511, 655377, 65524, 65511, 27, 524331, 65511, 655381, -131068, 65515, 327705, 524339, 65517, 36, 524345, 65517, 36, 4, 65519, 655395, 12, 65519, 1441813, 19, 65519, 1441813, 27, 65519, 1048604, 65516, 65519, 1441809, 65524, 65519, 1048593, 65532, 65519, 655377, 262179, 65519, 1048604, 327636, 65519, 28, 524331, 65519, 19, -131072, 65519, 65561, -131064, 65519, 65561, -131068, 65523, 327705, 262195, 65525, 655398, 262201, 65525, 655398, 4, 65527, 21, 65524, 65527, 1441809, 65532, 65527, 17, 589780, 65527, 28, 51, 65533, 655398, 57, 65533, 655398, 4, 65535, 28, 851924, 65535, 28 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( -2, 0, 0 )
+}
+
+[node name="LavaFloor" type="Spatial" parent="."]
+
+[node name="CSGBox" type="CSGBox" parent="LavaFloor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0 )
+use_collision = true
+collision_layer = 17
+collision_mask = 17
+width = 900.0
+height = 30.0
+depth = 900.0
+material = ExtResource( 2 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="LavaFloor/CSGBox" groups=[
+"tunnel",
+]]
+transform = Transform( 0.447619, -0.894225, 0, 0.894225, 0.447619, 0, 0, 0, 1, -3, 8, 47 )
+operation = 2
+radius = 10.0
+height = 35.0
+sides = 30
+material = ExtResource( 4 )
+script = ExtResource( 10 )
+
+[node name="Timer" type="Timer" parent="LavaFloor/CSGBox/CSGCylinder"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="LavaFloor/CSGBox/CSGCylinder"]
+wait_time = 3.0
+one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder"]
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 20.0
+bus = "Car"
+
+[node name="CSGCylinder3" type="CSGCylinder" parent="LavaFloor/CSGBox" groups=[
+"tunnel",
+]]
+transform = Transform( 1, 0, 0, 0, 0.184638, -0.982807, 0, 0.982807, 0.184638, 118.168, 8, 57 )
+operation = 2
+radius = 10.0
+height = 35.0
+sides = 30
+material = ExtResource( 4 )
+script = ExtResource( 10 )
+
+[node name="Timer" type="Timer" parent="LavaFloor/CSGBox/CSGCylinder3"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="LavaFloor/CSGBox/CSGCylinder3"]
+wait_time = 3.0
+one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder3"]
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 20.0
+bus = "Car"
+
+[node name="CSGCylinder4" type="CSGCylinder" parent="LavaFloor/CSGBox" groups=[
+"tunnel",
+]]
+transform = Transform( 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0, 1, 109.168, 2, 46 )
+operation = 2
+radius = 10.0
+height = 15.0
+sides = 30
+material = ExtResource( 4 )
+script = ExtResource( 10 )
+
+[node name="Timer" type="Timer" parent="LavaFloor/CSGBox/CSGCylinder4"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="LavaFloor/CSGBox/CSGCylinder4"]
+wait_time = 3.0
+one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder4"]
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 20.0
+bus = "Car"
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="LavaFloor/CSGBox" groups=[
+"tunnel",
+]]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 58, 0, 47 )
+operation = 2
+radius = 10.0
+height = 100.0
+sides = 30
+material = ExtResource( 4 )
+script = ExtResource( 10 )
+
+[node name="Timer" type="Timer" parent="LavaFloor/CSGBox/CSGCylinder2"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="LavaFloor/CSGBox/CSGCylinder2"]
+wait_time = 3.0
+one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53674e-07, 33, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 10.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-06, 15, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 10.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8147e-06, -20, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 10.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8147e-06, -42, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 10.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90735e-06, 46, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 10.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D6" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8147e-06, 3, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 10.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D7" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.72205e-06, -7, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 10.0
+bus = "Car"
+
+[node name="AudioStreamPlayer3D8" type="AudioStreamPlayer3D" parent="LavaFloor/CSGBox/CSGCylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.72205e-06, -29, 0 )
+stream = ExtResource( 13 )
+unit_db = 10.0
+autoplay = true
+max_distance = 10.0
+bus = "Car"
+
+[node name="StartLights" parent="." instance=ExtResource( 6 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 66.4965, 5.38016, 21.1773 )
+
+[node name="Beacons" type="Node" parent="."]
+
+[node name="Beacon1" type="Position3D" parent="Beacons" groups=[
+"BeaconPos",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.0215, 25.0306, -33.856 )
+script = ExtResource( 11 )
+
+[node name="Beacon2" type="Position3D" parent="Beacons" groups=[
+"BeaconPos",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 51.7674, 16.4583, -95.8404 )
+script = ExtResource( 11 )
+
+[node name="Beacon3" type="Position3D" parent="Beacons" groups=[
+"BeaconPos",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.8987, 8.96519, -17.3667 )
+script = ExtResource( 11 )
+
+[node name="Beacon4" type="Position3D" parent="Beacons" groups=[
+"BeaconPos",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7473, 23.7737, 98.2148 )
+script = ExtResource( 11 )
+
+[node name="Beacon5" type="Position3D" parent="Beacons" groups=[
+"BeaconPos",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.2527, 8.26134, 11.2148 )
+script = ExtResource( 11 )
+
+[node name="Beacon6" type="Position3D" parent="Beacons" groups=[
+"BeaconPos",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56.7473, 8.26134, -25.7852 )
+script = ExtResource( 11 )
+
+[node name="Beacon7" type="Position3D" parent="Beacons" groups=[
+"BeaconPos",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -136.747, 47.2613, 29.2148 )
+script = ExtResource( 11 )
+
+[node name="Beacon8" type="Position3D" parent="Beacons" groups=[
+"BeaconPos",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -110.747, 39.2613, 94.2148 )
+script = ExtResource( 11 )
+
+[node name="Beacon9" type="Position3D" parent="Beacons" groups=[
+"BeaconPos",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.7473, 15.2613, 47.2384 )
+script = ExtResource( 11 )
+
+[node name="Beacon10" type="Position3D" parent="Beacons" groups=[
+"BeaconPos",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.658, 0.961189, 54.2384 )
+script = ExtResource( 11 )
+
+[node name="Beacon11" type="Position3D" parent="Beacons" groups=[
+"BeaconPos",
+]]
+transform = Transform( 1.2, 0, 0, 0, 1, 0, 0, 0, 0.1, 64.7794, 8.96119, 21.0582 )
+script = ExtResource( 11 )
+
+[node name="PickUps" type="Node" parent="."]
+
+[node name="PickupSpawn22" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.6921, 11.3184, -15 )
+
+[node name="PickupSpawn" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.6921, 17.8722, -53 )
+
+[node name="PickupSpawn2" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.6921, 9.74085, -89 )
+
+[node name="PickupSpawn3" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.6921, 9.71764, -69 )
+
+[node name="PickupSpawn4" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.69206, 1.3184, -69 )
+
+[node name="PickupSpawn5" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3079, 1.3184, -62 )
+
+[node name="PickupSpawn6" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.9627, 3.3184, -33 )
+
+[node name="PickupSpawn7" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.9627, 25.4638, 47 )
+
+[node name="PickupSpawn8" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.0373, 1.46382, 71 )
+
+[node name="PickupSpawn9" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49.0373, 1.46382, 13 )
+
+[node name="PickupSpawn10" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.2445, 17.4002, -46 )
+
+[node name="PickupSpawn11" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2445, 8.40016, -33 )
+
+[node name="PickupSpawn12" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88.7555, 1.40016, -33 )
+
+[node name="PickupSpawn13" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -135.755, 12.4002, -33 )
+
+[node name="PickupSpawn14" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -135.755, 41.4002, 44 )
+
+[node name="PickupSpawn15" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -146.755, 33.4002, 44 )
+
+[node name="PickupSpawn16" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -124.614, 26.8255, 75.5259 )
+
+[node name="PickupSpawn17" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -74.7555, 32.2289, 47 )
+
+[node name="PickupSpawn18" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.7555, 8.08169, 50 )
+
+[node name="PickupSpawn19" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.2445, -14.5114, 47 )
+
+[node name="PickupSpawn20" parent="PickUps" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 120.245, 1.44343, 72 )
+
+[node name="GameOverPopUp" parent="." instance=ExtResource( 9 )]
+
+[node name="VictoryPopup" parent="." instance=ExtResource( 12 )]
+
+[node name="MusicPlayerTree" parent="." instance=ExtResource( 14 )]
+
+[node name="SoundMenu" parent="." instance=ExtResource( 16 )]
+
+[connection signal="timeout" from="LavaFloor/CSGBox/CSGCylinder/Timer" to="LavaFloor/CSGBox/CSGCylinder" method="_on_Timer_timeout"]
+[connection signal="timeout" from="LavaFloor/CSGBox/CSGCylinder/Timer2" to="LavaFloor/CSGBox/CSGCylinder" method="_on_Timer2_timeout"]
+[connection signal="timeout" from="LavaFloor/CSGBox/CSGCylinder3/Timer" to="LavaFloor/CSGBox/CSGCylinder3" method="_on_Timer_timeout"]
+[connection signal="timeout" from="LavaFloor/CSGBox/CSGCylinder3/Timer2" to="LavaFloor/CSGBox/CSGCylinder3" method="_on_Timer2_timeout"]
+[connection signal="timeout" from="LavaFloor/CSGBox/CSGCylinder4/Timer" to="LavaFloor/CSGBox/CSGCylinder4" method="_on_Timer_timeout"]
+[connection signal="timeout" from="LavaFloor/CSGBox/CSGCylinder4/Timer2" to="LavaFloor/CSGBox/CSGCylinder4" method="_on_Timer2_timeout"]
+[connection signal="timeout" from="LavaFloor/CSGBox/CSGCylinder2/Timer" to="LavaFloor/CSGBox/CSGCylinder2" method="_on_Timer_timeout"]
+[connection signal="timeout" from="LavaFloor/CSGBox/CSGCylinder2/Timer2" to="LavaFloor/CSGBox/CSGCylinder2" method="_on_Timer2_timeout"]

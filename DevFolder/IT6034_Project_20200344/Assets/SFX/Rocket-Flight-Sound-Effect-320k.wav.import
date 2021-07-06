@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Rocket-Flight-Sound-Effect-320k.wav-164614c76f1733c37af69ac528fe6f84.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Rocket-Flight-Sound-Effect-320k.wav"
+dest_files=[ "res://.import/Rocket-Flight-Sound-Effect-320k.wav-164614c76f1733c37af69ac528fe6f84.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=true
+compress/mode=0

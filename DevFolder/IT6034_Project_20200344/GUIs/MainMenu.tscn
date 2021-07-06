@@ -1,0 +1,172 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Fonts/kenvector_future.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://GUIs/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://GUIs/ColorMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GUIs/MainTheme.tres" type="Theme" id=4]
+[ext_resource path="res://GUIs/Control_Instructions.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GUIs/Level Select.tscn" type="PackedScene" id=6]
+[ext_resource path="res://GUIs/LevelNotCreatedLevelSelect.tscn" type="PackedScene" id=7]
+[ext_resource path="res://World/MusicPlayers/MusicPlayerTree.tscn" type="PackedScene" id=8]
+[ext_resource path="res://GUIs/SoundMenu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/sound-icon.png" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 52
+outline_size = 2
+outline_color = Color( 1, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0509804, 0.0509804, 0.0509804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 59.0
+custom_fonts/font = SubResource( 1 )
+text = "Game Title"
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 63.0
+margin_right = 1024.0
+margin_bottom = 163.0
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/CenterContainer"]
+margin_left = 226.0
+margin_right = 798.0
+margin_bottom = 100.0
+custom_constants/vseparation = 10
+columns = 2
+
+[node name="PlayerNameLabel" type="Label" parent="VBoxContainer/CenterContainer/GridContainer"]
+margin_top = 5.0
+margin_right = 318.0
+margin_bottom = 40.0
+text = "Player Name:"
+align = 2
+
+[node name="PlayerNameEdit" type="LineEdit" parent="VBoxContainer/CenterContainer/GridContainer"]
+margin_left = 322.0
+margin_right = 572.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 250, 0 )
+
+[node name="LevelLabel" type="Label" parent="VBoxContainer/CenterContainer/GridContainer"]
+margin_top = 60.0
+margin_right = 318.0
+margin_bottom = 95.0
+text = "Current Level:"
+align = 2
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/CenterContainer/GridContainer"]
+margin_left = 322.0
+margin_top = 55.0
+margin_right = 572.0
+margin_bottom = 100.0
+editable = false
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 167.0
+margin_right = 1024.0
+margin_bottom = 475.0
+rect_min_size = Vector2( 0, 200 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CenterContainer2"]
+margin_left = 302.0
+margin_right = 722.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 420, 0 )
+custom_constants/separation = 10
+
+[node name="ControlsButton" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_right = 420.0
+margin_bottom = 43.0
+text = "Controls"
+
+[node name="Tutorial" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 53.0
+margin_right = 420.0
+margin_bottom = 96.0
+text = "Tutorial"
+
+[node name="EditColorsButton" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 106.0
+margin_right = 420.0
+margin_bottom = 149.0
+text = " Vehicle Colors"
+
+[node name="SelectLevelButton" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 159.0
+margin_right = 420.0
+margin_bottom = 202.0
+text = "Select Level"
+
+[node name="PlayButton" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 212.0
+margin_right = 420.0
+margin_bottom = 255.0
+text = "Play Game"
+
+[node name="QuitGame" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 265.0
+margin_right = 420.0
+margin_bottom = 308.0
+text = "Quit Game"
+
+[node name="ColorMenu" parent="." instance=ExtResource( 3 )]
+
+[node name="Control_Instructions" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="Level Select" parent="." instance=ExtResource( 6 )]
+
+[node name="LevelNotMadeMsg" parent="." instance=ExtResource( 7 )]
+visible = false
+
+[node name="AudioSettingButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -78.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = 58.0
+icon = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundMenu" parent="." instance=ExtResource( 9 )]
+
+[node name="MusicPlayerTree" parent="." instance=ExtResource( 8 )]
+
+[connection signal="text_changed" from="VBoxContainer/CenterContainer/GridContainer/PlayerNameEdit" to="." method="_on_PlayerNameEdit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/VBoxContainer/ControlsButton" to="." method="_on_ControlsButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/VBoxContainer/Tutorial" to="." method="_on_Tutorial_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/VBoxContainer/EditColorsButton" to="." method="_on_EditColorsButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/VBoxContainer/SelectLevelButton" to="." method="_on_SelectLevelButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/VBoxContainer/QuitGame" to="." method="_on_QuitGame_pressed"]
+[connection signal="pressed" from="AudioSettingButton" to="." method="_on_AudioSettingButton_pressed"]

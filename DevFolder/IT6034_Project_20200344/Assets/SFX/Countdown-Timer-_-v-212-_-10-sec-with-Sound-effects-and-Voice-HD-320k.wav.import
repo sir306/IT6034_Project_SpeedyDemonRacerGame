@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Countdown-Timer-_-v-212-_-10-sec-with-Sound-effects-and-Voice-HD-320k.wav-c34de26da1c5bfd4a8ac85d5fed54bc1.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Countdown-Timer-_-v-212-_-10-sec-with-Sound-effects-and-Voice-HD-320k.wav"
+dest_files=[ "res://.import/Countdown-Timer-_-v-212-_-10-sec-with-Sound-effects-and-Voice-HD-320k.wav-c34de26da1c5bfd4a8ac85d5fed54bc1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0

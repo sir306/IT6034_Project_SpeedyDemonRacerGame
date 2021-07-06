@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cyberpunksportmidtempo.wav-e2b25423522bd12c88b0b9f6e50f9e78.sample"
+
+[deps]
+
+source_file="res://Assets/Music/cyberpunksportmidtempo.wav"
+dest_files=[ "res://.import/cyberpunksportmidtempo.wav-e2b25423522bd12c88b0b9f6e50f9e78.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
